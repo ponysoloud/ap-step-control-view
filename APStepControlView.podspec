@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "APStepControlView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "The step-control-view provides controlling stack of items with nice user interactions."
 
   s.description  = "The step-control-view is the beautiful control that provides easy changing count of elements in list. It may helps to navigate in navigation-controller view-controllers hierarchy or to anything else..."
@@ -21,9 +21,9 @@ Pod::Spec.new do |s|
 
   s.author       = { "Alex Ponomarev" => "ponomarevsoloud@gmail.com" }
 
-  s.platform     = :ios, "11.0"
+  s.platform     = :ios, "10.0"
 
-  s.source       = { :git => "https://github.com/ponysoloud/ap-step-control-view.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/ponysoloud/ap-step-control-view.git", :tag => "0.0.2" }
 
   s.source_files  = "APStepControlView", "APStepControlView/*.{h,m,swift}"
 
