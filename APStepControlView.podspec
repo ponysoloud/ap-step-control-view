@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "11.0"
 
-  s.source       = { :git => "http://EXAMPLE/APStepControlView.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/ponysoloud/ap-step-control-view", :tag => "0.0.1" }
 
   s.source_files  = "APStepControlView", "APStepControlView/**/*.{h,m,swift}"
 
