@@ -8,13 +8,28 @@
 
 public protocol APStepControlViewDelegate: class {
 
-    func stepsNavigationView(_ stepsNavigationView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int)
+    /**
+     Notify about changing steps count in list when long press ending.
 
-    func stepsNavigationView(_ stepsNavigationView: APStepControlView, shouldPopStepWithIndex index: Int) -> Bool
+     - parameters:
+        - apStepControlView: The APStepControlView object
+        - count: Count of step before last editing
+        - newCount: Count of step after last editing
+    */
+    func apStepControlView(_ apStepControlView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int)
+
+    /**
+     Ask to pop object with index.
+
+     - parameters:
+        - apStepControlView: The APStepControlView object
+        - index: Index of the popping element in the list (from zero)
+    */
+    func apStepControlView(_ apStepControlView: APStepControlView, shouldPopStepWithIndex index: Int) -> Bool
 
 }
 
 extension APStepControlViewDelegate {
 
-    func stepsNavigationView(_ stepsNavigationView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int) { }
+    func apStepControlView(_ apStepControlView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int) { }
 }

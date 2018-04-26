@@ -28,7 +28,7 @@ class APStepIndicator: UIView {
             }
         }
 
-        var color: UIColor = .red {
+        var color: UIColor = .clear {
             didSet {
                 setNeedsDisplay()
             }
@@ -66,25 +66,25 @@ class APStepIndicator: UIView {
         case lastBorder
     }
 
-    private(set) var state: State = .clear
+    private var state: State = .clear
 
     private var regularColor: UIColor = .red {
         didSet {
-            if state == .last {
+            if state == .regular {
                 smallCircle?.color = regularColor
             }
         }
     }
     private var lastColor: UIColor = .darkGray {
         didSet {
-            if state == .regular {
+            if state == .last {
                 smallCircle?.color = lastColor
             }
         }
     }
     private var lastBorderColor: UIColor = .gray {
         didSet {
-            if state == .regular {
+            if state == .last {
                 borderCircle?.color = lastBorderColor
             }
         }
@@ -99,15 +99,6 @@ class APStepIndicator: UIView {
         case .lastBorder:
             lastBorderColor = color
         }
-    }
-
-    func setColorForActiveState(color: UIColor) {
-        regularColor = color
-    }
-
-    func setColorForInactiveState(color: UIColor, borderColor: UIColor) {
-        lastColor = color
-        lastBorderColor = borderColor
     }
 
     func setState(_ newState: State, completion: @escaping () -> Void = {}) {
@@ -243,8 +234,8 @@ extension APStepIndicator {
     }
 
     private func animateSmallDisappearing(completion: @escaping () -> Void = {}) {
-        UIView.animate(withDuration: 0.07, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.0, options: .curveEaseInOut, animations: {
-            self.smallCircle?.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+        UIView.animate(withDuration: 0.05, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.0, options: .curveEaseIn, animations: {
+            self.smallCircle?.transform = CGAffineTransform.identity.scaledBy(x: 0.05, y: 0.05)
         }, completion: { _ in
             completion()
         })

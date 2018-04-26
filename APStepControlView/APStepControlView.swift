@@ -24,6 +24,10 @@ public class APStepControlView: UIView {
     private var steps: [APStepIndicator] = []
     private var size: CGSize
 
+    private var regularColor: UIColor = .red
+    private var lastColor: UIColor = .darkGray
+    private var lastBorderColor: UIColor = .gray
+
     // LongPress Behaviour properties
     private var beginPosition: CGFloat = 0.0
     private var lastIndexOffset: Int = 0
@@ -87,23 +91,23 @@ extension APStepControlView {
     // MARK: - Public Methods
 
     public func setColor(_ color: UIColor, for state: StepIndicatorStateCircle) {
-        var internalState: APStepIndicator.StateCircle
-
         switch state {
         case .regular:
-            internalState = .regular
+            regularColor = color
         case .last:
-            internalState = .last
+            lastColor = color
         case .lastBorder:
-            internalState = .lastBorder
+            lastBorderColor = color
         }
 
-
-        steps.forEach {
-            $0.setColor(color, for: internalState)
-        }
+        reloadSteps()
     }
 
+    /**
+     Add element to the end of steps list.
+
+     It doesn't call delegates methods.
+    */
     public func push() {
         let size = CGSize(width: self.size.height, height: self.size.height)
         let point = CGPoint(x: self.size.height * CGFloat(steps.count), y: 0.0)
@@ -113,10 +117,21 @@ extension APStepControlView {
         addSubview(step)
 
         steps.last?.setState(.regular)
+        steps.last?.setColor(regularColor, for: .regular)
+
         steps.append(step)
         step.setState(.last)
+        step.setColor(lastColor, for: .last)
+        step.setColor(lastBorderColor, for: .lastBorder)
     }
 
+    /**
+     Forced remove element from the end of steps list.
+
+     If list is empty, it does nothing.
+
+     It doesn't call delegates methods and ignore shouldPopStep function.
+    */
     public func pop() {
         guard let last = steps.popLast() else {
             return
@@ -175,7 +190,7 @@ extension APStepControlView {
             if abs(indexOffset) > abs(lastIndexOffset) {
                 // move left
                 if steps.count > 0 {
-                    guard let shouldPop = delegate?.stepsNavigationView(self, shouldPopStepWithIndex: steps.count - 1) else {
+                    guard let shouldPop = delegate?.apStepControlView(self, shouldPopStepWithIndex: steps.count - 1) else {
 
                         self.pop()
 
@@ -198,7 +213,7 @@ extension APStepControlView {
 
         case .ended, .cancelled:
 
-            delegate?.stepsNavigationView(self, didChangeStepsCountFrom: stepsCountBeforeChanging, to: steps.count)
+            delegate?.apStepControlView(self, didChangeStepsCountFrom: stepsCountBeforeChanging, to: steps.count)
 
             UIView.animate(withDuration: 0.1, animations: {
                 self.transform = CGAffineTransform.identity
