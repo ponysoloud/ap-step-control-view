@@ -80,7 +80,7 @@ Steps indicators colors are customizable. It's set for states separately.
 stepControl.setColor(.black, for: .regular)
 ```
 
-####
+####  
 
 If you don't need to take user touch control and want to manipulate it with forced `pow()` and `pop()`, just set `isUserInteractionEnabled = false`.
 
