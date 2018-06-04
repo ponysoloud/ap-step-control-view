@@ -3,10 +3,11 @@
 [![Version](https://img.shields.io/cocoapods/v/APStepControlView.svg?style=flat)](https://cocoapods.org/pods/APStepControlView)
 [![License](https://img.shields.io/cocoapods/l/APStepControlView.svg?style=flat)](https://cocoapods.org/pods/APStepControlView)
 [![Platform](https://img.shields.io/cocoapods/p/APStepControlView.svg?style=flat)](https://cocoapods.org/pods/APStepControlView)
+[![Swift](https://img.shields.io/badge/swift-4.0-lightgrey.svg?style=flat)](https://cocoapods.org/pods/APStepControlView)
 
 `APStepControlView` is beautiful control element that provides to user easy and lovely way to decrease count of elements in list. It may be useful to manipulate with `Navigation controller` hierarchy.
 
-<img src="https://github.com/ponysoloud/ap-step-control-view/blob/master/Demonstration.gif" width="250">
+<img src="https://github.com/ponysoloud/ap-step-control-view/blob/master/Demonstration.gif" width="450">
 
 ## Requirements
 
@@ -78,6 +79,10 @@ Steps indicators colors are customizable. It's set for states separately.
 ```swift
 stepControl.setColor(.black, for: .regular)
 ```
+
+####  
+
+If you don't need to take user touch control and want to manipulate it with forced `pow()` and `pop()`, just set `isUserInteractionEnabled = false`.
 
 #### AutoLayout
 
