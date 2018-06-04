@@ -72,12 +72,14 @@ stepControlView.delegate = stepControlViewDelegateImpl
 
 #### Customizing
 
-Steps indicators colors are customizable. It's set for states separately.
+Steps indicators colors are customizable. It can be set with `ColorStyles` objects for every Indicator type.
 
-![Illustration](https://github.com/ponysoloud/ap-step-control-view/blob/master/ColorStatesIllustration.png?raw=true)
+![Illustration](https://github.com/ponysoloud/ap-step-control-view/blob/master/ColorStylesIllustration.png?raw=true)
 
 ```swift
-stepControl.setColor(.black, for: .regular)
+stepControl.commonIndicatorColorStyle.circle = .black
+stepControl.peekIndicatorColorStyle.circle = .red
+stepControl.peekIndicatorColorStyle.border = .blue
 ```
 
 ####  
