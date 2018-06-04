@@ -6,7 +6,7 @@
 //  Copyright © 2018 Base team. All rights reserved.
 //
 
-public protocol APStepControlViewDelegate: class {
+public protocol APStepControlViewDelegate: AnyObject {
 
     /**
      Notify about changing steps count in list when long press ending.
@@ -29,7 +29,7 @@ public protocol APStepControlViewDelegate: class {
 
 }
 
-extension APStepControlViewDelegate {
+public extension APStepControlViewDelegate {
 
     func apStepControlView(_ apStepControlView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int) { }
 }

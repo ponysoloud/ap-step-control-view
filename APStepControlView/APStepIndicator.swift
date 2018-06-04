@@ -2,14 +2,26 @@
 //  APStepIndicator.swift
 //  APStepControlView
 //
-//  Created by Александр Пономарев on 24.04.2018.
+//  Created by Alexander Ponomarev on 24.04.2018.
 //  Copyright © 2018 Base team. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
+/**
+ Element of the ControlView.
+ */
 class APStepIndicator: UIView {
+
+    /**
+     Indicator Positions in ControlView
+     */
+    enum StackPosition {
+        case peek
+        case common
+        case clear
+    }
 
     class Circle: UIView {
 
@@ -54,63 +66,59 @@ class APStepIndicator: UIView {
     private var smallCircle: Circle?
     private var borderCircle: Circle?
 
-    enum State {
-        case last
-        case regular
-        case clear
-    }
+    private var state: StackPosition = .clear
 
-    enum StateCircle {
-        case regular
-        case last
-        case lastBorder
-    }
+    // MARK: - Private colors properties
 
-    private var state: State = .clear
-
-    private var regularColor: UIColor = .red {
+    private var commonCircleColor: UIColor = .red {
         didSet {
-            if state == .regular {
-                smallCircle?.color = regularColor
+            if state == .common {
+                smallCircle?.color = commonCircleColor
             }
         }
     }
-    private var lastColor: UIColor = .darkGray {
+    private var peekCircleColor: UIColor = .darkGray {
         didSet {
-            if state == .last {
-                smallCircle?.color = lastColor
+            if state == .peek {
+                smallCircle?.color = peekCircleColor
             }
         }
     }
-    private var lastBorderColor: UIColor = .gray {
+    private var peekBorderColor: UIColor = .gray {
         didSet {
-            if state == .last {
-                borderCircle?.color = lastBorderColor
+            if state == .peek {
+                borderCircle?.color = peekBorderColor
             }
         }
     }
 
-    func setColor(_ color: UIColor, for state: StateCircle) {
+    // MARK: - Internal Indicator configuration methods
+
+    enum ColorStyle {
+        case peek(circle: UIColor, border: UIColor)
+        case common(circle: UIColor)
+    }
+
+    func setColorStyle(_ colorStyle: ColorStyle) {
+        switch colorStyle {
+        case let .peek(circle: circleColor, border: borderColor):
+            peekCircleColor = circleColor
+            peekBorderColor = borderColor
+        case let .common(circle: circleColor):
+            commonCircleColor = circleColor
+        }
+    }
+
+    func setState(_ newState: StackPosition, completion: @escaping () -> Void = {}) {
         switch state {
-        case .regular:
-            regularColor = color
-        case .last:
-            lastColor = color
-        case .lastBorder:
-            lastBorderColor = color
-        }
-    }
-
-    func setState(_ newState: State, completion: @escaping () -> Void = {}) {
-        switch state {
-        case .last:
+        case .peek:
             switch newState {
-            case .regular:
+            case .common:
                 animateBorderDisappearing {
                     self.borderCircle?.removeFromSuperview()
                     self.borderCircle = nil
 
-                    self.smallCircle?.color = self.regularColor
+                    self.smallCircle?.color = self.commonCircleColor
 
                     completion()
                 }
@@ -126,23 +134,22 @@ class APStepIndicator: UIView {
 
                     completion()
                 }
-
-            default:
+            case .peek:
                 break
             }
-        case .regular:
+        case .common:
             switch newState {
-            case .last:
+            case .peek:
                 borderCircle?.removeFromSuperview()
 
                 let side = min(frame.width, frame.height)
 
                 borderCircle = Circle(frame: self.bounds)
                 borderCircle!.radius = side / 2
-                borderCircle!.color = self.lastBorderColor
+                borderCircle!.color = self.peekBorderColor
                 insertSubview(borderCircle!, belowSubview: smallCircle!)
 
-                smallCircle!.color = self.lastColor
+                smallCircle!.color = self.peekCircleColor
 
                 animateBorderAppearing(completion: completion)
 
@@ -153,12 +160,12 @@ class APStepIndicator: UIView {
 
                     completion()
                 }
-            default:
+            case .common:
                 break
             }
         case .clear:
             switch newState {
-            case .last:
+            case .peek:
                 smallCircle?.removeFromSuperview()
                 borderCircle?.removeFromSuperview()
 
@@ -167,18 +174,18 @@ class APStepIndicator: UIView {
 
                 borderCircle = Circle(frame: self.bounds)
                 borderCircle!.radius = side / 2
-                borderCircle!.color = self.lastBorderColor
+                borderCircle!.color = self.peekBorderColor
                 addSubview(borderCircle!)
 
                 smallCircle = Circle(frame: self.bounds)
                 smallCircle!.radius = mainRadius
-                smallCircle!.color = self.lastColor
+                smallCircle!.color = self.peekCircleColor
                 addSubview(smallCircle!)
 
                 animateSmallCircleAppearing()
                 animateBorderAppearing(completion: completion)
 
-            case .regular:
+            case .common:
                 smallCircle?.removeFromSuperview()
                 borderCircle?.removeFromSuperview()
 
@@ -189,12 +196,12 @@ class APStepIndicator: UIView {
 
                 smallCircle = Circle(frame: self.bounds)
                 smallCircle!.radius = mainRadius
-                smallCircle!.color = self.regularColor
+                smallCircle!.color = self.commonCircleColor
                 addSubview(smallCircle!)
 
                 animateSmallCircleAppearing(completion: completion)
 
-            default:
+            case .clear:
                 break
             }
         }
@@ -204,6 +211,8 @@ class APStepIndicator: UIView {
 }
 
 extension APStepIndicator {
+
+    // MARK: - Private Indicator animation methods
 
     private func animateSmallCircleAppearing(completion: @escaping () -> Void = {}) {
         smallCircle?.transform = CGAffineTransform.identity.scaledBy(x: 0, y: 0)

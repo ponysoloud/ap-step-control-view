@@ -19,14 +19,46 @@ public class APStepControlView: UIView {
         return steps.count
     }
 
-    // MARK: - Private Properties
+    /**
+     Defines color scheme of the Common Element in ControlView.
+     */
+    public struct CommonColorStyle {
+        public var circle: UIColor
+    }
 
+    /**
+     Defines color scheme of the Peek Element in ControlView.
+     */
+    public struct PeekColorStyle {
+        public var circle: UIColor
+        public var borderColor: UIColor
+    }
+
+    /**
+     Color style of the Common Indicators (all elements in ControlView excepting last).
+
+     Use it to configure elements shapes colors.
+     */
+    public var commonIndicatorColorStyle = CommonColorStyle(circle: .red) {
+        didSet {
+            reloadSteps()
+        }
+    }
+
+    /**
+     Color style of the Peek Indicator (last element in ControlView).
+
+     Use it to configure elements shapes colors.
+     */
+    public var peekIndicatorColorStyle = PeekColorStyle(circle: .darkGray, borderColor: .gray) {
+        didSet {
+            reloadSteps()
+        }
+    }
+
+    // MARK: - Private Properties
     private var steps: [APStepIndicator] = []
     private var size: CGSize
-
-    private var regularColor: UIColor = .red
-    private var lastColor: UIColor = .darkGray
-    private var lastBorderColor: UIColor = .gray
 
     // LongPress Behaviour properties
     private var beginPosition: CGFloat = 0.0
@@ -82,27 +114,6 @@ public class APStepControlView: UIView {
 
 extension APStepControlView {
 
-    public enum StepIndicatorStateCircle {
-        case regular
-        case last
-        case lastBorder
-    }
-
-    // MARK: - Public Methods
-
-    public func setColor(_ color: UIColor, for state: StepIndicatorStateCircle) {
-        switch state {
-        case .regular:
-            regularColor = color
-        case .last:
-            lastColor = color
-        case .lastBorder:
-            lastBorderColor = color
-        }
-
-        reloadSteps()
-    }
-
     /**
      Add element to the end of steps list.
 
@@ -116,13 +127,12 @@ extension APStepControlView {
         let step = APStepIndicator(frame: rect)
         addSubview(step)
 
-        steps.last?.setState(.regular)
-        steps.last?.setColor(regularColor, for: .regular)
+        steps.last?.setState(.common)
+        steps.last?.setColorStyle(.common(circle: commonIndicatorColorStyle.circle))
 
         steps.append(step)
-        step.setState(.last)
-        step.setColor(lastColor, for: .last)
-        step.setColor(lastBorderColor, for: .lastBorder)
+        step.setState(.peek)
+        step.setColorStyle(.peek(circle: peekIndicatorColorStyle.circle, border: peekIndicatorColorStyle.borderColor))
     }
 
     /**
@@ -142,7 +152,7 @@ extension APStepControlView {
         last.setState(.clear) {
             last.removeFromSuperview()
 
-            newLast?.setState(.last)
+            newLast?.setState(.peek)
         }
     }
 

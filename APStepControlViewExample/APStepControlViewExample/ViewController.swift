@@ -23,22 +23,23 @@ class ViewController: UIViewController, APStepControlViewDelegate {
         view.addSubview(stepControl)
 
         // Set color for regular state of steps
-        stepControl.setColor(.black, for: .regular)
+        stepControl.commonIndicatorColorStyle.circle = .black
+        stepControl.peekIndicatorColorStyle.borderColor = .lightGray
 
         // Add constraints - fix height, vertical and horizontal position. Width is free for increasing and decreasing
         stepControl.translatesAutoresizingMaskIntoConstraints = false
-        stepControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100.0).isActive = true
+        stepControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 250.0).isActive = true
         stepControl.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
 
         // View position can be fix with center
         //stepControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         // View can be fixing with left or right anchors
-        stepControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 40.0).isActive = true
+        stepControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70.0).isActive = true
 
 
 
         // Add push Button
-        let pushRect = CGRect(x: 40, y: 200, width: 70, height: 40)
+        let pushRect = CGRect(x: 200, y: 400, width: 70, height: 40)
         let pushButton = UIButton(frame: pushRect)
         pushButton.setTitle("Push", for: .normal)
         pushButton.setTitleColor(.black, for: .normal)
@@ -47,7 +48,7 @@ class ViewController: UIViewController, APStepControlViewDelegate {
         view.addSubview(pushButton)
 
         // Add pop Button
-        let popRect = CGRect(x: 40, y: 250, width: 70, height: 40)
+        let popRect = CGRect(x: 200, y: 550, width: 70, height: 40)
         let popButton = UIButton(frame: popRect)
         popButton.setTitle("Pop", for: .normal)
         popButton.setTitleColor(.black, for: .normal)
