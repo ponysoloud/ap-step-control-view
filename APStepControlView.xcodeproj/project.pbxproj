@@ -7,13 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93D63E3020C84BDE005AD710 /* APStepControlViewPropertiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D63E2F20C84BDE005AD710 /* APStepControlViewPropertiesTests.swift */; };
+		93D63E3220C84BDE005AD710 /* APStepControlView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F5A1F2208FAB94005C8B50 /* APStepControlView.framework */; };
+		93D63E5B20C96AA1005AD710 /* APStepControlViewLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D63E5A20C96AA1005AD710 /* APStepControlViewLayoutTests.swift */; };
+		93D63E5D20C96AA1005AD710 /* APStepControlView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F5A1F2208FAB94005C8B50 /* APStepControlView.framework */; };
 		93F5A1F7208FAB94005C8B50 /* APStepControlView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F5A1F5208FAB94005C8B50 /* APStepControlView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F5A1FE208FB056005C8B50 /* APStepControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5A1FD208FB056005C8B50 /* APStepControlView.swift */; };
 		93F5A200208FB062005C8B50 /* APStepControlViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5A1FF208FB062005C8B50 /* APStepControlViewDelegate.swift */; };
 		93F5A202208FB07A005C8B50 /* APStepIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5A201208FB07A005C8B50 /* APStepIndicator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		93D63E3320C84BDE005AD710 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93F5A1E9208FAB94005C8B50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F5A1F1208FAB94005C8B50;
+			remoteInfo = APStepControlView;
+		};
+		93D63E5E20C96AA1005AD710 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93F5A1E9208FAB94005C8B50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F5A1F1208FAB94005C8B50;
+			remoteInfo = APStepControlView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		93D63E2D20C84BDE005AD710 /* APStepControlViewPropertiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APStepControlViewPropertiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D63E2F20C84BDE005AD710 /* APStepControlViewPropertiesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APStepControlViewPropertiesTests.swift; sourceTree = "<group>"; };
+		93D63E3120C84BDE005AD710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93D63E5820C96AA1005AD710 /* APStepControlViewLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APStepControlViewLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D63E5A20C96AA1005AD710 /* APStepControlViewLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APStepControlViewLayoutTests.swift; sourceTree = "<group>"; };
+		93D63E5C20C96AA1005AD710 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93F5A1F2208FAB94005C8B50 /* APStepControlView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APStepControlView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F5A1F5208FAB94005C8B50 /* APStepControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APStepControlView.h; sourceTree = "<group>"; };
 		93F5A1F6208FAB94005C8B50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -23,6 +50,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		93D63E2A20C84BDE005AD710 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D63E3220C84BDE005AD710 /* APStepControlView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D63E5520C96AA1005AD710 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D63E5D20C96AA1005AD710 /* APStepControlView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93F5A1EE208FAB94005C8B50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,10 +76,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		93D63E2E20C84BDE005AD710 /* APStepControlViewPropertiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				93D63E2F20C84BDE005AD710 /* APStepControlViewPropertiesTests.swift */,
+				93D63E3120C84BDE005AD710 /* Info.plist */,
+			);
+			path = APStepControlViewPropertiesTests;
+			sourceTree = "<group>";
+		};
+		93D63E5920C96AA1005AD710 /* APStepControlViewLayoutTests */ = {
+			isa = PBXGroup;
+			children = (
+				93D63E5A20C96AA1005AD710 /* APStepControlViewLayoutTests.swift */,
+				93D63E5C20C96AA1005AD710 /* Info.plist */,
+			);
+			path = APStepControlViewLayoutTests;
+			sourceTree = "<group>";
+		};
 		93F5A1E8208FAB94005C8B50 = {
 			isa = PBXGroup;
 			children = (
 				93F5A1F4208FAB94005C8B50 /* APStepControlView */,
+				93D63E2E20C84BDE005AD710 /* APStepControlViewPropertiesTests */,
+				93D63E5920C96AA1005AD710 /* APStepControlViewLayoutTests */,
 				93F5A1F3208FAB94005C8B50 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				93F5A1F2208FAB94005C8B50 /* APStepControlView.framework */,
+				93D63E2D20C84BDE005AD710 /* APStepControlViewPropertiesTests.xctest */,
+				93D63E5820C96AA1005AD710 /* APStepControlViewLayoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +140,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		93D63E2C20C84BDE005AD710 /* APStepControlViewPropertiesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D63E3520C84BDE005AD710 /* Build configuration list for PBXNativeTarget "APStepControlViewPropertiesTests" */;
+			buildPhases = (
+				93D63E2920C84BDE005AD710 /* Sources */,
+				93D63E2A20C84BDE005AD710 /* Frameworks */,
+				93D63E2B20C84BDE005AD710 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93D63E3420C84BDE005AD710 /* PBXTargetDependency */,
+			);
+			name = APStepControlViewPropertiesTests;
+			productName = APStepControlViewPropertiesTests;
+			productReference = 93D63E2D20C84BDE005AD710 /* APStepControlViewPropertiesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		93D63E5720C96AA1005AD710 /* APStepControlViewLayoutTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D63E6020C96AA1005AD710 /* Build configuration list for PBXNativeTarget "APStepControlViewLayoutTests" */;
+			buildPhases = (
+				93D63E5420C96AA1005AD710 /* Sources */,
+				93D63E5520C96AA1005AD710 /* Frameworks */,
+				93D63E5620C96AA1005AD710 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93D63E5F20C96AA1005AD710 /* PBXTargetDependency */,
+			);
+			name = APStepControlViewLayoutTests;
+			productName = APStepControlViewLayoutTests;
+			productReference = 93D63E5820C96AA1005AD710 /* APStepControlViewLayoutTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		93F5A1F1208FAB94005C8B50 /* APStepControlView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93F5A1FA208FAB94005C8B50 /* Build configuration list for PBXNativeTarget "APStepControlView" */;
@@ -99,9 +200,16 @@
 		93F5A1E9208FAB94005C8B50 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Base team";
 				TargetAttributes = {
+					93D63E2C20C84BDE005AD710 = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					93D63E5720C96AA1005AD710 = {
+						CreatedOnToolsVersion = 9.4;
+					};
 					93F5A1F1208FAB94005C8B50 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
@@ -121,11 +229,27 @@
 			projectRoot = "";
 			targets = (
 				93F5A1F1208FAB94005C8B50 /* APStepControlView */,
+				93D63E2C20C84BDE005AD710 /* APStepControlViewPropertiesTests */,
+				93D63E5720C96AA1005AD710 /* APStepControlViewLayoutTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		93D63E2B20C84BDE005AD710 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D63E5620C96AA1005AD710 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93F5A1F0208FAB94005C8B50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -136,6 +260,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		93D63E2920C84BDE005AD710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D63E3020C84BDE005AD710 /* APStepControlViewPropertiesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D63E5420C96AA1005AD710 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D63E5B20C96AA1005AD710 /* APStepControlViewLayoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93F5A1ED208FAB94005C8B50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,7 +288,96 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		93D63E3420C84BDE005AD710 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93F5A1F1208FAB94005C8B50 /* APStepControlView */;
+			targetProxy = 93D63E3320C84BDE005AD710 /* PBXContainerItemProxy */;
+		};
+		93D63E5F20C96AA1005AD710 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93F5A1F1208FAB94005C8B50 /* APStepControlView */;
+			targetProxy = 93D63E5E20C96AA1005AD710 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		93D63E3620C84BDE005AD710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PEYKHN6GF6;
+				INFOPLIST_FILE = APStepControlViewPropertiesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baseteam.APStepControlViewPropertiesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93D63E3720C84BDE005AD710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PEYKHN6GF6;
+				INFOPLIST_FILE = APStepControlViewPropertiesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baseteam.APStepControlViewPropertiesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		93D63E6120C96AA1005AD710 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PEYKHN6GF6;
+				INFOPLIST_FILE = APStepControlViewLayoutTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baseteam.APStepControlViewLayoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93D63E6220C96AA1005AD710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PEYKHN6GF6;
+				INFOPLIST_FILE = APStepControlViewLayoutTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baseteam.APStepControlViewLayoutTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		93F5A1F8208FAB94005C8B50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -325,6 +554,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		93D63E3520C84BDE005AD710 /* Build configuration list for PBXNativeTarget "APStepControlViewPropertiesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D63E3620C84BDE005AD710 /* Debug */,
+				93D63E3720C84BDE005AD710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D63E6020C96AA1005AD710 /* Build configuration list for PBXNativeTarget "APStepControlViewLayoutTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D63E6120C96AA1005AD710 /* Debug */,
+				93D63E6220C96AA1005AD710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		93F5A1EC208FAB94005C8B50 /* Build configuration list for PBXProject "APStepControlView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

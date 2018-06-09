@@ -7,29 +7,48 @@
 //
 
 import XCTest
+@testable import APStepControlView
 
 class APStepControlViewPropertiesTests: XCTestCase {
     
+    var viewUnderTest: APStepControlView!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        viewUnderTest = APStepControlView(stepsCount: 5)
     }
-    
+
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewUnderTest = nil
+
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testViewStepsCountAfterInitWithCount() {
+        // then
+        XCTAssertEqual(viewUnderTest.stepsCount, 5, "Wrong number of steps after initializing")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+
+    func testViewStepsCountAfterPush() {
+        // given
+        let count = viewUnderTest.stepsCount
+
+        // when
+        viewUnderTest.push()
+
+        // then
+        XCTAssertEqual(viewUnderTest.stepsCount, count + 1, "Wrong number of steps after pushing")
     }
-    
+
+    func testViewStepsCountAfterPop() {
+        // given
+        let count = viewUnderTest.stepsCount
+
+        // when
+        viewUnderTest.pop()
+
+        // then
+        XCTAssertEqual(viewUnderTest.stepsCount, count - 1, "Wrong number of steps after poping")
+    }
 }

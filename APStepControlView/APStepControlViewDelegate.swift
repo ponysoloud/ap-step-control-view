@@ -9,21 +9,21 @@
 public protocol APStepControlViewDelegate: AnyObject {
 
     /**
-     Notify about changing steps count in list when long press ending.
+     Notify about changing steps count in list when long press ends.
 
      - parameters:
         - apStepControlView: The APStepControlView object
-        - count: Count of step before last editing
-        - newCount: Count of step after last editing
+        - count: Count of step before long press
+        - newCount: Count of step after long press
     */
     func apStepControlView(_ apStepControlView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int)
 
     /**
-     Ask to pop object with index.
+     Ask to pop object during long press interaction with index.
 
      - parameters:
         - apStepControlView: The APStepControlView object
-        - index: Index of the popping element in the list (from zero)
+        - index: Index of the element to pop in the list (from zero)
     */
     func apStepControlView(_ apStepControlView: APStepControlView, shouldPopStepWithIndex index: Int) -> Bool
 

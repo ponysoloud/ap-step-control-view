@@ -65,10 +65,10 @@ public class APStepControlView: UIView {
     private var lastIndexOffset: Int = 0
     private var stepsCountBeforeChanging: Int = 0
 
-    public convenience init(sectionsCount: Int) {
+    public convenience init(stepsCount: Int) {
         self.init(frame: CGRect.zero)
 
-        for _ in 0..<sectionsCount {
+        for _ in 0..<stepsCount {
             push()
         }
 

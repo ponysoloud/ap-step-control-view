@@ -17,7 +17,7 @@ class ViewController: UIViewController, APStepControlViewDelegate {
         super.viewDidLoad()
 
         // Initialize
-        stepControl = APStepControlView(sectionsCount: 3)
+        stepControl = APStepControlView(stepsCount: 3)
         stepControl.delegate = self
 
         view.addSubview(stepControl)
@@ -33,9 +33,9 @@ class ViewController: UIViewController, APStepControlViewDelegate {
 
         // View position can be fix with center
         //stepControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         // View can be fixing with left or right anchors
         stepControl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70.0).isActive = true
-
 
 
         // Add push Button
@@ -48,7 +48,7 @@ class ViewController: UIViewController, APStepControlViewDelegate {
         view.addSubview(pushButton)
 
         // Add pop Button
-        let popRect = CGRect(x: 200, y: 550, width: 70, height: 40)
+        let popRect = CGRect(x: 200, y: 500, width: 70, height: 40)
         let popButton = UIButton(frame: popRect)
         popButton.setTitle("Pop", for: .normal)
         popButton.setTitleColor(.black, for: .normal)
@@ -70,7 +70,7 @@ class ViewController: UIViewController, APStepControlViewDelegate {
     // Implementing APStepControlViewDelegate
 
     func apStepControlView(_ apStepControlView: APStepControlView, shouldPopStepWithIndex index: Int) -> Bool {
-        return index > 0
+        return index > 0 // Count of steps in control view is always greater 0. Notice: pop() method of Control View don't ask for a delegate.
     }
 
     func apStepControlView(_ apStepControlView: APStepControlView, didChangeStepsCountFrom count: Int, to newCount: Int) {

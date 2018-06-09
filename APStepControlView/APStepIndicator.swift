@@ -123,17 +123,26 @@ class APStepIndicator: UIView {
                     completion()
                 }
             case .clear:
+                let group = DispatchGroup()
+
+                group.enter()
                 animateSmallDisappearing {
                     self.smallCircle?.removeFromSuperview()
                     self.smallCircle = nil
+
+                    group.leave()
                 }
 
+                group.enter()
                 animateBorderDisappearing {
                     self.borderCircle?.removeFromSuperview()
                     self.borderCircle = nil
 
-                    completion()
+                    group.leave()
                 }
+
+                group.notify(queue: .main, execute: completion)
+
             case .peek:
                 break
             }
