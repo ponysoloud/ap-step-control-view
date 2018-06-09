@@ -38,7 +38,7 @@ import APStepControlView
 `APStepControlView` have one initializer to set initial count of steps.
 
 ```swift
-let stepControlView = APStepControlView(sectionsCount: 5)
+let stepControlView = APStepControlView(stepsCount: 5)
 ```
 
 Also, `APStepControlView` is a `UIView` and can be initialized like it.
