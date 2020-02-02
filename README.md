@@ -7,7 +7,7 @@
 
 `APStepControlView` is beautiful control element that provides to user easy and lovely way to decrease count of elements in list. It may be useful to manipulate with `Navigation controller` hierarchy.
 
-<img src="https://media.giphy.com/media/2tOuHvEV3wkZUV9Z1c/giphy.gif" width="450">
+![Illustration](https://github.com/ponysoloud/ap-step-control-view/blob/master/Demonstration.gif?raw=true)
 
 ## Requirements
 
